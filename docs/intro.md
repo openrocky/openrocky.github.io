@@ -1,47 +1,69 @@
 ---
 sidebar_position: 1
+slug: /
 ---
 
-# Tutorial Intro
+# Introduction
 
-Let's discover **Docusaurus in less than 5 minutes**.
+**Rocky** is a voice-first AI Agent app for iPhone and iPad. **OpenRocky** is the open-source project behind it.
 
-## Getting Started
+Rocky is not a mobile chat shell, nor a ported Linux container on a phone. It puts **voice conversation as the primary entry point**, organizing voice interaction, task execution, system bridging, and result review into an agent experience designed for iOS and iPadOS.
 
-Get started by **creating a new site**.
+## Why Voice-First?
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+Most AI apps on mobile are text-based chat interfaces. Rocky takes a fundamentally different approach:
 
-### What you'll need
+```mermaid
+graph LR
+    subgraph Traditional["Traditional AI Apps"]
+        T1["Text Input"] --> T2["Chat Messages"] --> T3["Read Results"]
+    end
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+    subgraph Rocky["Rocky"]
+        R1["🎤 Voice"] --> R2["Task Execution"] --> R3["Voice + Visual Results"]
+    end
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+- **Voice is the main entry** — Talk to Rocky like talking to a person. No typing needed.
+- **Text is a supplement** — Available when you need precise input like code or URLs.
+- **Tasks, not just chat** — Rocky doesn't just respond; it executes tasks and produces real results.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Core Principles
 
-## Start your site
+- **Voice as primary input** — The home screen is a voice interface, not a chat list.
+- **Task execution** — Powered by ROS, the internal runtime that plans and runs tasks.
+- **iPhone & iPad native** — Built with SwiftUI, using iOS native bridges and on-device execution.
+- **Open source** — Transparent development, community-driven.
 
-Run the development server:
+## Platform Support
 
-```bash
-cd my-website
-npm run start
-```
+| Platform | Status |
+|----------|--------|
+| iOS (iPhone) | Supported |
+| iPadOS (iPad) | Supported |
+| macOS | Not planned |
+| Android | Not planned |
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+## Current Status
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+OpenRocky is in the **documentation-first + early prototype** phase. The repository contains:
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Product positioning, iOS architecture docs, and reference materials
+- An early SwiftUI iOS prototype for direction validation
+
+The prototype has verified three key integrations:
+
+- **SwiftOpenAI** — Model access and OpenAI Realtime session bridging
+- **LanguageModelChatUI** — Chat detail view mounted in the iOS prototype
+- **ios_system** — Controlled local execution layer for runtime environment
+
+## Standard Naming
+
+> Rocky is the app. OpenRocky is the open-source project behind it.
+
+## Links
+
+- [GitHub](https://github.com/OpenRocky/OpenRocky)
+- [Discord](https://discord.gg/SvvsaDA4nE)
+- [Telegram](https://t.me/openrocky)
+- [Author on X](https://x.com/everettjf)

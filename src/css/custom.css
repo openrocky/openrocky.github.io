@@ -1,30 +1,264 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * OpenRocky custom theme
+ * Colors derived from the app's RockyPalette:
+ * - Accent: #4AC7E3 (cyan/turquoise)
+ * - Secondary: #FA8C57 (orange)
+ * - Background: #0F141F (dark navy)
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #1a8870;
+  --ifm-color-primary-dark: #177a65;
+  --ifm-color-primary-darker: #15735f;
+  --ifm-color-primary-darkest: #115f4e;
+  --ifm-color-primary-light: #1d967b;
+  --ifm-color-primary-lighter: #1f9e81;
+  --ifm-color-primary-lightest: #24b292;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #4AC7E3;
+  --ifm-color-primary-dark: #2fbdde;
+  --ifm-color-primary-darker: #24b6d9;
+  --ifm-color-primary-darkest: #1e97b4;
+  --ifm-color-primary-light: #65d0e8;
+  --ifm-color-primary-lighter: #70d4ea;
+  --ifm-color-primary-lightest: #96e1f0;
+  --ifm-background-color: #0F141F;
+  --ifm-background-surface-color: #1A1F2B;
+  --ifm-navbar-background-color: #0F141F;
+  --ifm-footer-background-color: #080B12;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Hero section */
+.hero-rocky {
+  background: linear-gradient(135deg, #0F141F 0%, #1A1F2B 50%, #0F141F 100%);
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-rocky::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    rgba(74, 199, 227, 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.hero-rocky .hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4AC7E3, #FA8C57);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.hero-rocky .hero__subtitle {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.hero-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 28px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 32px rgba(74, 199, 227, 0.2);
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .button {
+  border-radius: 12px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.hero-buttons .button--primary {
+  background: linear-gradient(135deg, #4AC7E3, #3ab0cc);
+  border: none;
+  color: #0F141F;
+}
+
+.hero-buttons .button--primary:hover {
+  background: linear-gradient(135deg, #65d0e8, #4AC7E3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(74, 199, 227, 0.3);
+  color: #0F141F;
+}
+
+.hero-buttons .button--outline {
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero-buttons .button--outline:hover {
+  border-color: #4AC7E3;
+  color: #4AC7E3;
+  transform: translateY(-1px);
+}
+
+/* Features section */
+.features-section {
+  padding: 5rem 0;
+}
+
+[data-theme='dark'] .features-section {
+  background: #0F141F;
+}
+
+.feature-card {
+  background: rgba(26, 31, 43, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+.feature-card:hover {
+  border-color: rgba(74, 199, 227, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.feature-card h3 {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Community section */
+.community-section {
+  padding: 5rem 0;
+}
+
+[data-theme='dark'] .community-section {
+  background: linear-gradient(180deg, #0F141F 0%, #131927 100%);
+}
+
+.community-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(26, 31, 43, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  color: inherit !important;
+}
+
+.community-card:hover {
+  border-color: rgba(74, 199, 227, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.community-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.community-info h4 {
+  margin: 0 0 0.25rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+}
+
+.community-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.85rem;
+}
+
+/* Open source section */
+.opensource-section {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+[data-theme='dark'] .opensource-section {
+  background: #0F141F;
+}
+
+.opensource-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.opensource-section p {
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 996px) {
+  .hero-rocky {
+    padding: 3rem 1rem;
+  }
+
+  .hero-rocky .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .hero-rocky .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+  }
+}
+
+/* Navbar tweaks for dark theme */
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Sidebar tweaks */
+[data-theme='dark'] .menu {
+  background: #0F141F;
 }

@@ -1,0 +1,46 @@
+{
+  "link.title.Docs": {
+    "message": "文档",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Community": {
+    "message": "社区",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "更多",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Getting Started": {
+    "message": "快速开始",
+    "description": "The label of footer link with label=Getting Started linking to /docs/getting-started"
+  },
+  "link.item.label.Architecture": {
+    "message": "架构",
+    "description": "The label of footer link with label=Architecture linking to /docs/architecture"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/SvvsaDA4nE"
+  },
+  "link.item.label.Telegram": {
+    "message": "Telegram",
+    "description": "The label of footer link with label=Telegram linking to https://t.me/openrocky"
+  },
+  "link.item.label.Author (X / Twitter)": {
+    "message": "作者 (X / Twitter)",
+    "description": "The label of footer link with label=Author (X / Twitter) linking to https://x.com/everettjf"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/OpenRocky/OpenRocky"
+  },
+  "link.item.label.Website": {
+    "message": "官网",
+    "description": "The label of footer link with label=Website linking to https://openrocky.org"
+  },
+  "copyright": {
+    "message": "Copyright &copy; 2026 OpenRocky. 基于 Docusaurus 构建。",
+    "description": "The footer copyright"
+  }
+}
