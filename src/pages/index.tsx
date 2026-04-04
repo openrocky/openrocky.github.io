@@ -40,6 +40,18 @@ const communityLinks: CommunityLink[] = [
   },
 ];
 
+function StarrySky(): ReactNode {
+  return (
+    <div className="starry-bg">
+      <div className="stars-layer-1" />
+      <div className="stars-layer-2" />
+      <div className="stars-layer-3" />
+      <div className="shooting-star" />
+      <div className="shooting-star-2" />
+    </div>
+  );
+}
+
 function HeroSection(): ReactNode {
   return (
     <header className="hero-rocky">
@@ -79,7 +91,7 @@ function FeaturesSection(): ReactNode {
     <section className="features-section">
       <div className="container">
         <div className="row">
-          <div className={clsx('col col--4')} style={{marginBottom: '1.5rem'}}>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
             <div className="feature-card">
               <span className="feature-icon">{'\uD83C\uDFA4'}</span>
               <Heading as="h3">
@@ -92,7 +104,7 @@ function FeaturesSection(): ReactNode {
               </p>
             </div>
           </div>
-          <div className={clsx('col col--4')} style={{marginBottom: '1.5rem'}}>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
             <div className="feature-card">
               <span className="feature-icon">{'\u26A1'}</span>
               <Heading as="h3">
@@ -105,7 +117,7 @@ function FeaturesSection(): ReactNode {
               </p>
             </div>
           </div>
-          <div className={clsx('col col--4')} style={{marginBottom: '1.5rem'}}>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
             <div className="feature-card">
               <span className="feature-icon">{'\uD83D\uDCF1'}</span>
               <Heading as="h3">
@@ -118,7 +130,7 @@ function FeaturesSection(): ReactNode {
               </p>
             </div>
           </div>
-          <div className={clsx('col col--4')} style={{marginBottom: '1.5rem'}}>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
             <div className="feature-card">
               <span className="feature-icon">{'\uD83D\uDD27'}</span>
               <Heading as="h3">
@@ -131,7 +143,7 @@ function FeaturesSection(): ReactNode {
               </p>
             </div>
           </div>
-          <div className={clsx('col col--4')} style={{marginBottom: '1.5rem'}}>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
             <div className="feature-card">
               <span className="feature-icon">{'\uD83E\uDD16'}</span>
               <Heading as="h3">
@@ -144,7 +156,7 @@ function FeaturesSection(): ReactNode {
               </p>
             </div>
           </div>
-          <div className={clsx('col col--4')} style={{marginBottom: '1.5rem'}}>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
             <div className="feature-card">
               <span className="feature-icon">{'\uD83D\uDD13'}</span>
               <Heading as="h3">
@@ -171,7 +183,7 @@ function CommunitySection(): ReactNode {
           <Heading as="h2">
             <Translate id="community.title">Join the Community</Translate>
           </Heading>
-          <p style={{color: 'rgba(255,255,255,0.55)', fontSize: '1.1rem'}}>
+          <p style={{color: 'rgba(180,195,220,0.6)', fontSize: '1.1rem'}}>
             <Translate id="community.subtitle">
               Connect with other developers and stay up to date.
             </Translate>
@@ -228,6 +240,7 @@ export default function Home(): ReactNode {
       title={translate({id: 'home.title', message: 'Voice-First AI Agent for iPhone'})}
       description="OpenRocky - Voice-First AI Agent for iPhone. Open source, task execution, native iOS experience."
     >
+      <StarrySky />
       <HeroSection />
       <main>
         <FeaturesSection />
