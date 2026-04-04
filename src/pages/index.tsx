@@ -40,18 +40,6 @@ const communityLinks: CommunityLink[] = [
   },
 ];
 
-function StarrySky(): ReactNode {
-  return (
-    <div className="starry-bg">
-      <div className="stars-layer-1" />
-      <div className="stars-layer-2" />
-      <div className="stars-layer-3" />
-      <div className="shooting-star" />
-      <div className="shooting-star-2" />
-    </div>
-  );
-}
-
 function HeroSection(): ReactNode {
   return (
     <header className="hero-rocky">
@@ -240,7 +228,6 @@ export default function Home(): ReactNode {
       title={translate({id: 'home.title', message: 'Voice-First AI Agent for iPhone'})}
       description="OpenRocky - Voice-First AI Agent for iPhone. Open source, task execution, native iOS experience."
     >
-      <StarrySky />
       <HeroSection />
       <main>
         <FeaturesSection />

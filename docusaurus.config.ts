@@ -39,6 +39,10 @@ const config: Config = {
     },
   },
 
+  clientModules: [
+    './src/clientModules/starryBackground.ts',
+  ],
+
   presets: [
     [
       'classic',
@@ -59,7 +63,7 @@ const config: Config = {
     image: 'img/logo.png',
     colorMode: {
       defaultMode: 'dark',
-      disableSwitch: false,
+      disableSwitch: true,
       respectPrefersColorScheme: false,
     },
     navbar: {
