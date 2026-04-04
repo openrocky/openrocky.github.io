@@ -39,12 +39,49 @@ xcodebuild build -scheme Rocky -project Rocky/Rocky.xcodeproj -destination 'gene
 
 ## 配置服务商
 
-启动应用后，进入 **设置 > 服务商**，配置至少一个 AI 服务商的 API Key。支持的服务商包括：
+Rocky 使用**两个独立的服务商系统** —— 一个用于聊天（文本），一个用于语音（实时音频）。你可以独立配置不同的模型和 API Key。
 
-- OpenAI
-- Azure OpenAI
-- Google Gemini
-- 豆包
+启动应用后，进入 **设置 > 服务商**，你会看到两个标签页：
+
+### 聊天服务商（Chat Provider）
+
+用于文本对话、任务规划和工具执行。
+
+| 服务商 | 示例模型 |
+|----------|---------------|
+| OpenAI | GPT-5, GPT-4o |
+| Azure OpenAI | GPT-4o（部署） |
+| Anthropic | Claude 3.7 Sonnet |
+| Google Gemini | Gemini 2.5 Pro / Flash |
+| Groq | Llama 3.3 70B |
+| xAI | Grok 3 Beta |
+| OpenRouter | 多模型代理 |
+| DeepSeek | DeepSeek Chat |
+| 豆包（火山引擎） | Doubao Seed |
+| AIProxy | 代理访问 |
+
+### 语音服务商（Voice Provider）
+
+用于实时语音对话 —— 这是 Rocky 的主要交互方式。
+
+| 服务商 | 示例模型 | 说明 |
+|----------|---------------|-------|
+| OpenAI Realtime | GPT Realtime Mini / GPT Realtime | 功能最全 |
+| 豆包 Realtime | Doubao E2E Voice | 中文优化 |
+| Gemini Live | Gemini 2.5 Flash Native Audio | 原生音频 |
+
+:::tip
+同时只能激活**一个聊天服务商**和**一个语音服务商**，但你可以配置多个实例并自由切换。
+:::
+
+### 配置步骤
+
+1. 打开 Rocky App
+2. 进入 **设置 > 服务商**
+3. 在 **聊天** 和 **语音** 标签页之间切换
+4. 点击 **添加服务商**，选择服务商类型
+5. 输入 API Key 并按需配置端点
+6. 点击激活你想使用的服务商
 
 ## 开始对话
 

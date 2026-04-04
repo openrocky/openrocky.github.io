@@ -37,14 +37,51 @@ xcodebuild build -scheme Rocky -project Rocky/Rocky.xcodeproj -destination 'gene
 The `ios_system` framework does not support iOS Simulator. For full functionality, build and run on a physical device.
 :::
 
-## Configure a Provider
+## Configure Providers
 
-After launching the app, go to **Settings > Providers** and configure at least one AI provider with your API key. Supported providers include:
+Rocky uses **two separate provider systems** — one for Chat (text) and one for Voice (realtime audio). You can configure them independently with different models and API keys.
 
-- OpenAI
-- Azure OpenAI
-- Google Gemini
-- Doubao
+After launching the app, go to **Settings > Providers** where you'll see two tabs:
+
+### Chat Provider
+
+Used for text-based conversations, task planning, and tool execution.
+
+| Provider | Example Models |
+|----------|---------------|
+| OpenAI | GPT-5, GPT-4o |
+| Azure OpenAI | GPT-4o (deployment) |
+| Anthropic | Claude 3.7 Sonnet |
+| Google Gemini | Gemini 2.5 Pro / Flash |
+| Groq | Llama 3.3 70B |
+| xAI | Grok 3 Beta |
+| OpenRouter | Multi-model proxy |
+| DeepSeek | DeepSeek Chat |
+| Doubao (Volcengine) | Doubao Seed |
+| AIProxy | Proxy-based access |
+
+### Voice Provider
+
+Used for real-time voice conversations — the primary interaction mode.
+
+| Provider | Example Models | Notes |
+|----------|---------------|-------|
+| OpenAI Realtime | GPT Realtime Mini / GPT Realtime | Full-featured |
+| Doubao Realtime | Doubao E2E Voice | Optimized for Chinese |
+| Gemini Live | Gemini 2.5 Flash Native Audio | Native audio |
+
+:::tip
+Only **one Chat provider** and **one Voice provider** can be active at a time, but you can configure multiple instances of each and switch between them freely.
+:::
+
+### Setup Steps
+
+1. Open Rocky app
+2. Go to **Settings > Providers**
+3. Switch between the **Chat** and **Voice** tabs
+4. Tap **Add Provider**, select the provider type
+5. Enter your API key and configure the endpoint if needed
+6. Tap to activate the provider you want to use
 
 ## Start Talking
 
