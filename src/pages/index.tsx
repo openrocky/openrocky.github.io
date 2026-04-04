@@ -36,7 +36,7 @@ const communityLinks: CommunityLink[] = [
     icon: '\uD83D\uDCBB',
     name: 'GitHub',
     description: 'Star us on GitHub',
-    href: 'https://github.com/OpenRocky/OpenRocky',
+    href: 'https://github.com/openrocky/OpenRocky',
   },
 ];
 
@@ -64,7 +64,7 @@ function HeroSection(): ReactNode {
           </Link>
           <Link
             className="button button--outline button--lg"
-            href="https://github.com/OpenRocky/OpenRocky"
+            href="https://github.com/openrocky/OpenRocky"
           >
             <Translate id="hero.viewOnGithub">View on GitHub</Translate>
           </Link>
@@ -211,7 +211,7 @@ function OpenSourceSection(): ReactNode {
         <div className="hero-buttons">
           <Link
             className="button button--primary button--lg"
-            href="https://github.com/OpenRocky/OpenRocky"
+            href="https://github.com/openrocky/OpenRocky"
           >
             <Translate id="opensource.starOnGithub">Star on GitHub</Translate>
           </Link>

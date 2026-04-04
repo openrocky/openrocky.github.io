@@ -8,7 +8,7 @@ OpenRocky 是一个开源项目，欢迎社区贡献。
 
 ## 如何贡献
 
-1. 在 [GitHub](https://github.com/OpenRocky/OpenRocky) 上 **Fork** 仓库
+1. 在 [GitHub](https://github.com/openrocky/OpenRocky) 上 **Fork** 仓库
 2. 在本地 **Clone** 你的 fork
 3. **创建分支** 进行修改
 4. **提交修改** 并测试
@@ -29,7 +29,7 @@ OpenRocky 是一个开源项目，欢迎社区贡献。
 
 - [Discord](https://discord.gg/SvvsaDA4nE) — 社区讨论
 - [Telegram](https://t.me/openrocky) — 更新与聊天
-- [GitHub Issues](https://github.com/OpenRocky/OpenRocky/issues) — Bug 报告与功能建议
+- [GitHub Issues](https://github.com/openrocky/OpenRocky/issues) — Bug 报告与功能建议
 
 ## 代码风格
 

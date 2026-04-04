@@ -49,7 +49,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/OpenRocky/OpenRocky/tree/main/website/',
+          editUrl: 'https://github.com/openrocky/OpenRocky/tree/main/website/',
         },
         blog: false,
         theme: {
@@ -84,7 +84,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/OpenRocky/OpenRocky',
+          href: 'https://github.com/openrocky/OpenRocky',
           label: 'GitHub',
           position: 'right',
         },
@@ -128,7 +128,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/OpenRocky/OpenRocky',
+              href: 'https://github.com/openrocky/OpenRocky',
             },
             {
               label: 'Website',

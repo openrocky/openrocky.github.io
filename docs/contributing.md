@@ -8,7 +8,7 @@ OpenRocky is an open-source project and we welcome contributions.
 
 ## How to Contribute
 
-1. **Fork** the repository on [GitHub](https://github.com/OpenRocky/OpenRocky)
+1. **Fork** the repository on [GitHub](https://github.com/openrocky/OpenRocky)
 2. **Clone** your fork locally
 3. **Create a branch** for your changes
 4. **Make your changes** and test them
@@ -29,7 +29,7 @@ See the [Getting Started](./getting-started.md) guide for setting up the develop
 
 - [Discord](https://discord.gg/SvvsaDA4nE) — Community discussions
 - [Telegram](https://t.me/openrocky) — Updates and chat
-- [GitHub Issues](https://github.com/OpenRocky/OpenRocky/issues) — Bug reports and feature requests
+- [GitHub Issues](https://github.com/openrocky/OpenRocky/issues) — Bug reports and feature requests
 
 ## Code Style
 

@@ -63,7 +63,7 @@ OpenRocky 目前处于 **文档优先 + 早期原型** 阶段。仓库包含：
 
 ## 链接
 
-- [GitHub](https://github.com/OpenRocky/OpenRocky)
+- [GitHub](https://github.com/openrocky/OpenRocky)
 - [Discord](https://discord.gg/SvvsaDA4nE)
 - [Telegram](https://t.me/openrocky)
 - [作者 X / Twitter](https://x.com/everettjf)

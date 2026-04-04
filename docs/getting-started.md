@@ -13,7 +13,7 @@ sidebar_position: 2
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/OpenRocky/OpenRocky.git
+git clone https://github.com/openrocky/OpenRocky.git
 cd OpenRocky
 ```
 

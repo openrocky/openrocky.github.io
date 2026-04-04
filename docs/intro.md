@@ -63,7 +63,7 @@ The prototype has verified three key integrations:
 
 ## Links
 
-- [GitHub](https://github.com/OpenRocky/OpenRocky)
+- [GitHub](https://github.com/openrocky/OpenRocky)
 - [Discord](https://discord.gg/SvvsaDA4nE)
 - [Telegram](https://t.me/openrocky)
 - [Author on X](https://x.com/everettjf)

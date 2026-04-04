@@ -13,7 +13,7 @@ sidebar_position: 2
 ## 克隆仓库
 
 ```bash
-git clone https://github.com/OpenRocky/OpenRocky.git
+git clone https://github.com/openrocky/OpenRocky.git
 cd OpenRocky
 ```
 
