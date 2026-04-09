@@ -35,7 +35,7 @@ Each provider system follows a three-layer architecture:
 ```
 Provider (OpenAI, Anthropic, Gemini, ...)
   └── Account (your API key)
-       └── Model (GPT-4o, Claude 3.7, ...)
+       └── Model (GPT-4o, Claude Sonnet 4, ...)
 ```
 
 You can configure multiple accounts per provider and switch between models freely.
@@ -51,7 +51,7 @@ Chat providers handle all text-based interactions.
 
 ### Anthropic
 
-- **Models**: Claude 3.7 Sonnet
+- **Models**: Claude Sonnet 4
 - **API Key**: From [console.anthropic.com](https://console.anthropic.com)
 
 ### Azure OpenAI

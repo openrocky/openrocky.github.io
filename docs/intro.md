@@ -42,7 +42,7 @@ graph LR
 | iOS (iPhone) | Supported |
 | iPadOS (iPad) | Supported |
 | macOS | Not planned |
-| Android | Not planned |
+| Android | In development, coming soon |
 
 ## Current Status
 

@@ -269,7 +269,7 @@ export default function Home(): ReactNode {
             animation: 'fadeInUp 0.8s ease-out 0.7s both',
           }}
         >
-          Voice-First AI Agent for iOS/iPadOS and Android.
+          Voice-First AI Agent for iOS, iPadOS and Android.
         </p>
         <div
           style={{

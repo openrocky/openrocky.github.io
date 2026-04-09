@@ -33,6 +33,22 @@ See the [Getting Started](./getting-started.md) guide for setting up the develop
 
 ## Code Style
 
-- Follow existing Swift conventions in the codebase
-- Use SwiftUI for new UI components
+- 4-space indentation, opening brace on same line
+- PascalCase for types, camelCase for properties/methods
+- All app types prefixed with `Rocky`
+- SwiftUI for new UI, `@Observable` macro (not ObservableObject)
+- async/await for concurrency (Swift 6.0 strict concurrency)
+- Early returns and guard statements preferred
 - Keep commits focused and well-described
+
+## Pull Request Guidelines
+
+- Keep PRs focused on a single change
+- Include a clear description of what and why
+- Ensure the project builds: `xcodebuild build -scheme Rocky -project Rocky/Rocky.xcodeproj -destination 'generic/platform=iOS'`
+- Run tests if applicable: `xcodebuild test -scheme Rocky -project Rocky/Rocky.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 16'`
+- Reference related issues in the PR description
+
+## License
+
+By contributing, you agree that your contributions will be licensed under the Apache License 2.0.

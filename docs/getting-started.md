@@ -51,7 +51,7 @@ Used for text-based conversations, task planning, and tool execution.
 |----------|---------------|
 | OpenAI | GPT-5, GPT-4o |
 | Azure OpenAI | GPT-4o (deployment) |
-| Anthropic | Claude 3.7 Sonnet |
+| Anthropic | Claude Sonnet 4 |
 | Google Gemini | Gemini 2.5 Pro / Flash |
 | Groq | Llama 3.3 70B |
 | xAI | Grok 3 Beta |
