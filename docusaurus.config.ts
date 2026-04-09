@@ -73,12 +73,12 @@ const config: Config = {
         src: 'img/logo.png',
       },
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'docsSidebar',
-          position: 'left',
-          label: 'Docs',
-        },
+        // {
+        //   type: 'docSidebar',
+        //   sidebarId: 'docsSidebar',
+        //   position: 'left',
+        //   label: 'Docs',
+        // },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -93,19 +93,19 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Getting Started',
-              to: '/docs/getting-started',
-            },
-            {
-              label: 'Architecture',
-              to: '/docs/architecture',
-            },
-          ],
-        },
+        // {
+        //   title: 'Docs',
+        //   items: [
+        //     {
+        //       label: 'Getting Started',
+        //       to: '/docs/getting-started',
+        //     },
+        //     {
+        //       label: 'Architecture',
+        //       to: '/docs/architecture',
+        //     },
+        //   ],
+        // },
         {
           title: 'Community',
           items: [
