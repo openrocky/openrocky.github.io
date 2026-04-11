@@ -1,152 +1,265 @@
 import type {ReactNode} from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import {translate} from '@docusaurus/Translate';
+import Translate, {translate} from '@docusaurus/Translate';
 
-type LinkItem = {
-  label: string;
+type CommunityLink = {
+  icon: string;
+  name: string;
+  description: string;
   href: string;
 };
 
-function LinkButton({label, href}: LinkItem): ReactNode {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{
-        display: 'inline-block',
-        padding: '0.6rem 1.5rem',
-        borderRadius: '8px',
-        border: '1px solid rgba(74, 199, 227, 0.3)',
-        color: 'rgba(200, 210, 230, 0.9)',
-        textDecoration: 'none',
-        fontSize: '0.95rem',
-        transition: 'all 0.2s ease',
-        background: 'rgba(74, 199, 227, 0.05)',
-      }}
-    >
-      {label}
-    </a>
-  );
-}
+const communityLinks: CommunityLink[] = [
+  {
+    icon: '\uD83D\uDCAC',
+    name: 'Discord',
+    description: 'Join the community',
+    href: 'https://discord.gg/SvvsaDA4nE',
+  },
+  {
+    icon: '\u2708\uFE0F',
+    name: 'Telegram',
+    description: '@openrocky',
+    href: 'https://t.me/openrocky',
+  },
+  {
+    icon: '\uD83D\uDC26',
+    name: 'X / Twitter',
+    description: '@everettjf',
+    href: 'https://x.com/everettjf',
+  },
+  {
+    icon: '\uD83D\uDCBB',
+    name: 'GitHub',
+    description: 'Star us on GitHub',
+    href: 'https://github.com/openrocky/OpenRocky',
+  },
+];
 
-function SectionTitle({children}: {children: ReactNode}): ReactNode {
+function HeroSection(): ReactNode {
   return (
-    <h3
-      style={{
-        fontSize: '0.85rem',
-        fontWeight: 500,
-        color: 'rgba(74, 199, 227, 0.7)',
-        letterSpacing: '0.15em',
-        textTransform: 'uppercase',
-        marginBottom: '1rem',
-      }}
-    >
-      {children}
-    </h3>
-  );
-}
-
-export default function Home(): ReactNode {
-  return (
-    <Layout
-      title={translate({id: 'home.title', message: 'Voice-First AI Agent'})}
-      description="OpenRocky - Voice-First AI Agent for iOS and Android."
-    >
-      <main
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          minHeight: 'calc(100vh - 60px)',
-          textAlign: 'center',
-          padding: '2rem',
-        }}
-      >
+    <header className="hero-rocky">
+      <div className="container">
         <img
           src="/img/logo.png"
           alt="Rocky"
           className="hero-logo"
         />
-        <Heading as="h1" className="hero__title" style={{fontSize: '3.5rem', marginBottom: '1rem'}}>
+        <Heading as="h1" className="hero__title">
           OpenRocky
         </Heading>
-        <p
-          style={{
-            fontSize: '1.15rem',
-            color: 'rgba(180, 195, 220, 0.6)',
-            maxWidth: '520px',
-            lineHeight: 1.7,
-            marginBottom: '0.5rem',
-            animation: 'fadeInUp 0.8s ease-out 0.5s both',
-          }}
-        >
-          {translate({
-            id: 'home.subtitle',
-            message: 'Voice-First AI Agent for iOS, iPadOS and Android.',
-          })}
+        <p className="hero__subtitle">
+          <Translate id="hero.subtitle">
+            Voice-First AI Agent for iOS, iPadOS and Android. Talk instead of type — Rocky executes
+            real tasks through natural voice conversation.
+          </Translate>
         </p>
-        <p
-          style={{
-            fontSize: '1.3rem',
-            fontWeight: 400,
-            color: 'rgba(74, 199, 227, 0.85)',
-            letterSpacing: '0.05em',
-            animation: 'fadeInUp 0.8s ease-out 0.6s both',
-            marginBottom: '2.5rem',
-          }}
-        >
-          {translate({
-            id: 'home.testing',
-            message: 'Now available for testing on both iOS and Android.',
-          })}
+        <p style={{
+          fontSize: '1.2rem',
+          fontWeight: 400,
+          color: 'rgba(74, 199, 227, 0.85)',
+          letterSpacing: '0.05em',
+          animation: 'fadeInUp 0.8s ease-out 0.6s both',
+          marginBottom: '2rem',
+        }}>
+          <Translate id="hero.testing">
+            Now available for testing on both iOS and Android.
+          </Translate>
         </p>
+        <div className="hero-buttons">
+          <Link
+            className="button button--primary button--lg"
+            href="https://testflight.apple.com/join/GZtbEpXN"
+          >
+            <Translate id="hero.testflight">iOS TestFlight</Translate>
+          </Link>
+          <Link
+            className="button button--outline button--lg"
+            href="https://play.google.com/apps/testing/com.xnu.rocky"
+          >
+            <Translate id="hero.android">Android Testing</Translate>
+          </Link>
+          <Link
+            className="button button--outline button--lg"
+            href="https://github.com/openrocky"
+          >
+            <Translate id="hero.viewOnGithub">View on GitHub</Translate>
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
 
-        {/* Download / Test */}
-        <div style={{animation: 'fadeInUp 0.8s ease-out 0.7s both', marginBottom: '2rem'}}>
-          <SectionTitle>
-            {translate({id: 'home.section.download', message: 'Download'})}
-          </SectionTitle>
-          <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center'}}>
-            <LinkButton label="iOS TestFlight" href="https://testflight.apple.com/join/GZtbEpXN" />
-            <LinkButton label="Android Testing" href="https://play.google.com/apps/testing/com.xnu.rocky" />
+function FeaturesSection(): ReactNode {
+  return (
+    <section className="features-section">
+      <div className="container">
+        <div className="row">
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
+            <div className="feature-card">
+              <span className="feature-icon">{'\uD83C\uDFA4'}</span>
+              <Heading as="h3">
+                <Translate id="feature.voice.title">Voice-First Design</Translate>
+              </Heading>
+              <p>
+                <Translate id="feature.voice.description">
+                  Voice is THE primary entry point. Talk to Rocky naturally on your iPhone or iPad. Text is just a supplement — this is a true voice agent.
+                </Translate>
+              </p>
+            </div>
+          </div>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
+            <div className="feature-card">
+              <span className="feature-icon">{'\u26A1'}</span>
+              <Heading as="h3">
+                <Translate id="feature.task.title">Task Execution</Translate>
+              </Heading>
+              <p>
+                <Translate id="feature.task.description">
+                  Rocky executes tasks, not just conversations. Powered by ROS — the internal runtime that organizes sessions, tools, memory, and artifacts.
+                </Translate>
+              </p>
+            </div>
+          </div>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
+            <div className="feature-card">
+              <span className="feature-icon">{'\uD83D\uDCF1'}</span>
+              <Heading as="h3">
+                <Translate id="feature.native.title">Mobile Native</Translate>
+              </Heading>
+              <p>
+                <Translate id="feature.native.description">
+                  Built with SwiftUI for iOS/iPadOS and Kotlin for Android. Rocky is designed from the ground up for mobile devices, not a ported desktop experience.
+                </Translate>
+              </p>
+            </div>
+          </div>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
+            <div className="feature-card">
+              <span className="feature-icon">{'\uD83D\uDD27'}</span>
+              <Heading as="h3">
+                <Translate id="feature.runtime.title">Extensible Runtime</Translate>
+              </Heading>
+              <p>
+                <Translate id="feature.runtime.description">
+                  Local execution layer with ios_system, Python and WASM support for extensions. Build skills and tools that run on-device.
+                </Translate>
+              </p>
+            </div>
+          </div>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
+            <div className="feature-card">
+              <span className="feature-icon">{'\uD83E\uDD16'}</span>
+              <Heading as="h3">
+                <Translate id="feature.provider.title">Multi-Provider</Translate>
+              </Heading>
+              <p>
+                <Translate id="feature.provider.description">
+                  Connect to OpenAI, Azure, Gemini, Doubao and more. Provider / account / model three-layer abstraction for maximum flexibility.
+                </Translate>
+              </p>
+            </div>
+          </div>
+          <div className={clsx('col col--4 feature-card-wrapper')} style={{marginBottom: '1.5rem'}}>
+            <div className="feature-card">
+              <span className="feature-icon">{'\uD83D\uDD13'}</span>
+              <Heading as="h3">
+                <Translate id="feature.opensource.title">Open Source</Translate>
+              </Heading>
+              <p>
+                <Translate id="feature.opensource.description">
+                  OpenRocky is the open-source project behind Rocky. Transparent development, community-driven, and built in the open.
+                </Translate>
+              </p>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Open Source */}
-        <div style={{animation: 'fadeInUp 0.8s ease-out 0.8s both', marginBottom: '2rem'}}>
-          <SectionTitle>
-            {translate({id: 'home.section.opensource', message: 'Open Source'})}
-          </SectionTitle>
-          <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center'}}>
-            <LinkButton label="iOS (GitHub)" href="https://github.com/openrocky/openrocky" />
-            <LinkButton label="Android (GitHub)" href="https://github.com/openrocky/openrocky_android" />
-          </div>
+function CommunitySection(): ReactNode {
+  return (
+    <section className="community-section">
+      <div className="container">
+        <div style={{textAlign: 'center', marginBottom: '3rem'}}>
+          <Heading as="h2">
+            <Translate id="community.title">Join the Community</Translate>
+          </Heading>
+          <p style={{color: 'rgba(180,195,220,0.6)', fontSize: '1.1rem'}}>
+            <Translate id="community.subtitle">
+              Connect with other developers and stay up to date.
+            </Translate>
+          </p>
         </div>
+        <div className="row" style={{justifyContent: 'center'}}>
+          {communityLinks.map((link, idx) => (
+            <div key={idx} className="col col--3" style={{marginBottom: '1rem'}}>
+              <a href={link.href} target="_blank" rel="noopener noreferrer" className="community-card">
+                <span className="community-icon">{link.icon}</span>
+                <div className="community-info">
+                  <h4>{link.name}</h4>
+                  <p>{link.description}</p>
+                </div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Feedback */}
-        <div style={{animation: 'fadeInUp 0.8s ease-out 0.9s both', marginBottom: '2rem'}}>
-          <SectionTitle>
-            {translate({id: 'home.section.feedback', message: 'Feedback'})}
-          </SectionTitle>
-          <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center'}}>
-            <LinkButton label="iOS Feedback" href="https://github.com/openrocky/openrocky/issues/new" />
-            <LinkButton label="Android Feedback" href="https://github.com/openrocky/openrocky_android/issues/new" />
-          </div>
+function OpenSourceSection(): ReactNode {
+  return (
+    <section className="opensource-section">
+      <div className="container">
+        <Heading as="h2">
+          <Translate id="opensource.title">Built in the Open</Translate>
+        </Heading>
+        <p>
+          <Translate id="opensource.subtitle">
+            Rocky is the app. OpenRocky is the open-source project behind it.
+            Contribute, explore, and build together.
+          </Translate>
+        </p>
+        <div className="hero-buttons">
+          <Link
+            className="button button--primary button--lg"
+            href="https://github.com/openrocky/openrocky"
+          >
+            <Translate id="opensource.iosGithub">iOS — GitHub</Translate>
+          </Link>
+          <Link
+            className="button button--outline button--lg"
+            href="https://github.com/openrocky/openrocky_android"
+          >
+            <Translate id="opensource.androidGithub">Android — GitHub</Translate>
+          </Link>
         </div>
+      </div>
+    </section>
+  );
+}
 
-        {/* Community */}
-        <div style={{animation: 'fadeInUp 0.8s ease-out 1.0s both'}}>
-          <SectionTitle>
-            {translate({id: 'home.section.community', message: 'Community'})}
-          </SectionTitle>
-          <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center'}}>
-            <LinkButton label="Telegram" href="https://t.me/openrocky" />
-            <LinkButton label="Discord" href="https://discord.gg/SvvsaDA4nE" />
-          </div>
-        </div>
+export default function Home(): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <Layout
+      title={translate({id: 'home.title', message: 'Voice-First AI Agent for iPhone'})}
+      description="OpenRocky - Voice-First AI Agent for iPhone. Open source, task execution, native iOS experience."
+    >
+      <HeroSection />
+      <main>
+        <FeaturesSection />
+        <CommunitySection />
+        <OpenSourceSection />
       </main>
     </Layout>
   );

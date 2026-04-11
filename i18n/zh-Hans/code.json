@@ -1,9 +1,15 @@
 {
   "hero.subtitle": {
-    "message": "面向 iPhone 和 iPad 的语音优先 AI Agent。用说的代替打字 —— Rocky 通过自然语音对话执行真实任务。目前仅支持 iOS 和 iPadOS。"
+    "message": "面向 iOS、iPadOS 和 Android 的语音优先 AI Agent。用说的代替打字 —— Rocky 通过自然语音对话执行真实任务。"
   },
-  "hero.getStarted": {
-    "message": "快速开始"
+  "hero.testing": {
+    "message": "iOS 和 Android 均已开放测试。"
+  },
+  "hero.testflight": {
+    "message": "iOS TestFlight"
+  },
+  "hero.android": {
+    "message": "Android 测试"
   },
   "hero.viewOnGithub": {
     "message": "在 GitHub 查看"
@@ -20,29 +26,14 @@
   "opensource.subtitle": {
     "message": "Rocky 是产品，OpenRocky 是背后的开源项目。一起参与、探索、构建。"
   },
-  "opensource.starOnGithub": {
-    "message": "在 GitHub 上 Star"
+  "opensource.iosGithub": {
+    "message": "iOS — GitHub"
+  },
+  "opensource.androidGithub": {
+    "message": "Android — GitHub"
   },
   "home.title": {
     "message": "语音优先 AI Agent"
-  },
-  "home.subtitle": {
-    "message": "面向 iOS、iPadOS 和 Android 的语音优先 AI Agent。"
-  },
-  "home.testing": {
-    "message": "iOS 和 Android 均已开放测试。"
-  },
-  "home.section.download": {
-    "message": "下载"
-  },
-  "home.section.opensource": {
-    "message": "开源"
-  },
-  "home.section.feedback": {
-    "message": "反馈"
-  },
-  "home.section.community": {
-    "message": "社区"
   },
   "theme.ErrorPageContent.title": {
     "message": "页面已崩溃。",
@@ -384,10 +375,10 @@
     "message": "Rocky 执行任务，不仅仅是对话。由 ROS 驱动 —— 组织会话、工具、记忆和产物的内部运行时。"
   },
   "feature.native.title": {
-    "message": "iPhone 原生"
+    "message": "移动端原生"
   },
   "feature.native.description": {
-    "message": "使用 SwiftUI 构建，原生支持 iOS 和 iPadOS。Rocky 从一开始就是为 Apple 移动设备设计，而非桌面移植。"
+    "message": "iOS/iPadOS 使用 SwiftUI 构建，Android 使用 Kotlin 构建。Rocky 从一开始就是为移动设备设计，而非桌面移植。"
   },
   "feature.runtime.title": {
     "message": "可扩展运行时"
