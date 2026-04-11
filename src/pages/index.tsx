@@ -36,7 +36,7 @@ const communityLinks: CommunityLink[] = [
     icon: '\uD83D\uDCBB',
     name: 'GitHub',
     description: 'Star us on GitHub',
-    href: 'https://github.com/openrocky/OpenRocky',
+    href: 'https://github.com/openrocky',
   },
 ];
 
@@ -108,7 +108,7 @@ function FeaturesSection(): ReactNode {
               </Heading>
               <p>
                 <Translate id="feature.voice.description">
-                  Voice is THE primary entry point. Talk to Rocky naturally on your iPhone or iPad. Text is just a supplement — this is a true voice agent.
+                  Voice is THE primary entry point. Talk to Rocky naturally on your iPhone, iPad, or Android device. Text is just a supplement — this is a true voice agent.
                 </Translate>
               </p>
             </div>

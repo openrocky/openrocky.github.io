@@ -18,6 +18,7 @@ const config: Config = {
   projectName: 'OpenRocky',
 
   onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   markdown: {
     mermaid: true,
@@ -84,7 +85,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/openrocky/OpenRocky',
+          href: 'https://github.com/openrocky',
           label: 'GitHub',
           position: 'right',
         },

@@ -366,7 +366,7 @@
     "message": "语音优先设计"
   },
   "feature.voice.description": {
-    "message": "语音是最核心的入口。在 iPhone 或 iPad 上自然地和 Rocky 说话，文本只是补充 —— 这是真正的语音 Agent。"
+    "message": "语音是最核心的入口。在 iPhone、iPad 或 Android 设备上自然地和 Rocky 说话，文本只是补充 —— 这是真正的语音 Agent。"
   },
   "feature.task.title": {
     "message": "任务执行"
