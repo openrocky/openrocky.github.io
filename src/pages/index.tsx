@@ -252,8 +252,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={translate({id: 'home.title', message: 'Voice-First AI Agent for iPhone'})}
-      description="OpenRocky - Voice-First AI Agent for iPhone. Open source, task execution, native iOS experience."
+      title={translate({id: 'home.title', message: 'Voice-First AI Agent for iOS/Android'})}
+      description="OpenRocky - Voice-First AI Agent for iOS/Android. Open source, task execution, native iOS/Android experience."
     >
       <HeroSection />
       <main>

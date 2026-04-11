@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'OpenRocky',
-  tagline: 'Voice-First AI Agent for iPhone & iPad',
+  tagline: 'Voice-First AI Agent for iOS/Android',
   favicon: 'img/logo.png',
 
   future: {

@@ -5,7 +5,7 @@ slug: /
 
 # Introduction
 
-**Rocky** is a voice-first AI Agent app for iPhone, iPad and Android. **OpenRocky** is the open-source project behind it.
+**Rocky** is a voice-first AI Agent app for iOS and Android. **OpenRocky** is the open-source project behind it.
 
 Rocky is not a mobile chat shell, nor a ported Linux container on a phone. It puts **voice conversation as the primary entry point**, organizing voice interaction, task execution, system bridging, and result review into an agent experience designed for iOS, iPadOS and Android.
 
