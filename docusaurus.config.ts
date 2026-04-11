@@ -73,12 +73,12 @@ const config: Config = {
         src: 'img/logo.png',
       },
       items: [
-        // {
-        //   type: 'docSidebar',
-        //   sidebarId: 'docsSidebar',
-        //   position: 'left',
-        //   label: 'Docs',
-        // },
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
         {
           type: 'localeDropdown',
           position: 'right',
@@ -93,19 +93,32 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        // {
-        //   title: 'Docs',
-        //   items: [
-        //     {
-        //       label: 'Getting Started',
-        //       to: '/docs/getting-started',
-        //     },
-        //     {
-        //       label: 'Architecture',
-        //       to: '/docs/architecture',
-        //     },
-        //   ],
-        // },
+        {
+          title: 'Download',
+          items: [
+            {
+              label: 'iOS TestFlight',
+              href: 'https://testflight.apple.com/join/GZtbEpXN',
+            },
+            {
+              label: 'Android Testing',
+              href: 'https://play.google.com/apps/testing/com.xnu.rocky',
+            },
+          ],
+        },
+        {
+          title: 'Open Source',
+          items: [
+            {
+              label: 'iOS (GitHub)',
+              href: 'https://github.com/openrocky/openrocky',
+            },
+            {
+              label: 'Android (GitHub)',
+              href: 'https://github.com/openrocky/openrocky_android',
+            },
+          ],
+        },
         {
           title: 'Community',
           items: [
@@ -124,15 +137,15 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Feedback',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/openrocky/OpenRocky',
+              label: 'iOS Feedback',
+              href: 'https://github.com/openrocky/openrocky/issues/new',
             },
             {
-              label: 'Website',
-              href: 'https://openrocky.org',
+              label: 'Android Feedback',
+              href: 'https://github.com/openrocky/openrocky_android/issues/new',
             },
           ],
         },

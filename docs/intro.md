@@ -5,9 +5,9 @@ slug: /
 
 # Introduction
 
-**Rocky** is a voice-first AI Agent app for iPhone and iPad. **OpenRocky** is the open-source project behind it.
+**Rocky** is a voice-first AI Agent app for iPhone, iPad and Android. **OpenRocky** is the open-source project behind it.
 
-Rocky is not a mobile chat shell, nor a ported Linux container on a phone. It puts **voice conversation as the primary entry point**, organizing voice interaction, task execution, system bridging, and result review into an agent experience designed for iOS and iPadOS.
+Rocky is not a mobile chat shell, nor a ported Linux container on a phone. It puts **voice conversation as the primary entry point**, organizing voice interaction, task execution, system bridging, and result review into an agent experience designed for iOS, iPadOS and Android.
 
 ## Why Voice-First?
 
@@ -37,25 +37,12 @@ graph LR
 
 ## Platform Support
 
-| Platform | Status |
-|----------|--------|
-| iOS (iPhone) | Supported |
-| iPadOS (iPad) | Supported |
-| macOS | Not planned |
-| Android | In development, coming soon |
-
-## Current Status
-
-OpenRocky is in the **documentation-first + early prototype** phase. The repository contains:
-
-- Product positioning, iOS architecture docs, and reference materials
-- An early SwiftUI iOS prototype for direction validation
-
-The prototype has verified three key integrations:
-
-- **SwiftOpenAI** — Model access and OpenAI Realtime session bridging
-- **LanguageModelChatUI** — Chat detail view mounted in the iOS prototype
-- **ios_system** — Controlled local execution layer for runtime environment
+| Platform | Status | Test Link |
+|----------|--------|-----------|
+| iOS (iPhone) | Testing | [TestFlight](https://testflight.apple.com/join/GZtbEpXN) |
+| iPadOS (iPad) | Testing | [TestFlight](https://testflight.apple.com/join/GZtbEpXN) |
+| Android | Testing | [Google Play Internal Testing](https://play.google.com/apps/testing/com.xnu.rocky) |
+| macOS | Not planned | — |
 
 ## Standard Naming
 
@@ -63,7 +50,11 @@ The prototype has verified three key integrations:
 
 ## Links
 
-- [GitHub](https://github.com/openrocky/OpenRocky)
-- [Discord](https://discord.gg/SvvsaDA4nE)
-- [Telegram](https://t.me/openrocky)
-- [Author on X](https://x.com/everettjf)
+- **Website:** [openrocky.org](https://openrocky.org/)
+- **iOS Open Source:** [github.com/openrocky/openrocky](https://github.com/openrocky/openrocky)
+- **Android Open Source:** [github.com/openrocky/openrocky_android](https://github.com/openrocky/openrocky_android)
+- **iOS Feedback:** [Submit Issue](https://github.com/openrocky/openrocky/issues/new)
+- **Android Feedback:** [Submit Issue](https://github.com/openrocky/openrocky_android/issues/new)
+- **Telegram:** [@openrocky](https://t.me/openrocky)
+- **Discord:** [Join](https://discord.gg/SvvsaDA4nE)
+- **Author on X:** [@everettjf](https://x.com/everettjf)

@@ -5,9 +5,9 @@ slug: /
 
 # 介绍
 
-**Rocky** 是一个面向 iPhone 和 iPad 的语音优先 AI Agent App。**OpenRocky** 是它背后的开源项目。
+**Rocky** 是一个面向 iPhone、iPad 和 Android 的语音优先 AI Agent App。**OpenRocky** 是它背后的开源项目。
 
-Rocky 不是移动端聊天壳，也不是把 Linux 容器直接搬进手机。它把**语音对话作为最核心的入口**，将语音交互、任务执行、系统桥接和结果回看组织成一个更适合 iOS 和 iPadOS 的 agent 体验。
+Rocky 不是移动端聊天壳，也不是把 Linux 容器直接搬进手机。它把**语音对话作为最核心的入口**，将语音交互、任务执行、系统桥接和结果回看组织成一个更适合 iOS、iPadOS 和 Android 的 agent 体验。
 
 ## 为什么语音优先？
 
@@ -37,25 +37,12 @@ graph LR
 
 ## 平台支持
 
-| 平台 | 状态 |
-|----------|--------|
-| iOS (iPhone) | 支持 |
-| iPadOS (iPad) | 支持 |
-| macOS | 暂无计划 |
-| Android | 暂无计划 |
-
-## 当前状态
-
-OpenRocky 目前处于 **文档优先 + 早期原型** 阶段。仓库包含：
-
-- 产品定位、iOS 架构文档和参考资料
-- 用于验证方向的早期 SwiftUI iOS 原型
-
-原型已经验证了三项关键集成：
-
-- **SwiftOpenAI** — 模型接入和 OpenAI Realtime 会话桥接
-- **LanguageModelChatUI** — 聊天详情页挂载到 iOS 原型中
-- **ios_system** — 受控本地执行层，用于运行环境初始化和命令执行
+| 平台 | 状态 | 测试链接 |
+|----------|--------|-----------|
+| iOS (iPhone) | 测试中 | [TestFlight](https://testflight.apple.com/join/GZtbEpXN) |
+| iPadOS (iPad) | 测试中 | [TestFlight](https://testflight.apple.com/join/GZtbEpXN) |
+| Android | 测试中 | [Google Play 内部测试](https://play.google.com/apps/testing/com.xnu.rocky) |
+| macOS | 暂无计划 | — |
 
 ## 标准表述
 
@@ -63,7 +50,11 @@ OpenRocky 目前处于 **文档优先 + 早期原型** 阶段。仓库包含：
 
 ## 链接
 
-- [GitHub](https://github.com/openrocky/OpenRocky)
-- [Discord](https://discord.gg/SvvsaDA4nE)
-- [Telegram](https://t.me/openrocky)
-- [作者 X / Twitter](https://x.com/everettjf)
+- **网站：** [openrocky.org](https://openrocky.org/)
+- **iOS 开源：** [github.com/openrocky/openrocky](https://github.com/openrocky/openrocky)
+- **Android 开源：** [github.com/openrocky/openrocky_android](https://github.com/openrocky/openrocky_android)
+- **iOS 反馈：** [提交 Issue](https://github.com/openrocky/openrocky/issues/new)
+- **Android 反馈：** [提交 Issue](https://github.com/openrocky/openrocky_android/issues/new)
+- **Telegram：** [@openrocky](https://t.me/openrocky)
+- **Discord：** [加入](https://discord.gg/SvvsaDA4nE)
+- **作者 X / Twitter：** [@everettjf](https://x.com/everettjf)

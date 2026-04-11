@@ -24,7 +24,25 @@
     "message": "在 GitHub 上 Star"
   },
   "home.title": {
-    "message": "面向 iPhone 和 iPad 的语音优先 AI Agent"
+    "message": "语音优先 AI Agent"
+  },
+  "home.subtitle": {
+    "message": "面向 iOS、iPadOS 和 Android 的语音优先 AI Agent。"
+  },
+  "home.testing": {
+    "message": "iOS 和 Android 均已开放测试。"
+  },
+  "home.section.download": {
+    "message": "下载"
+  },
+  "home.section.opensource": {
+    "message": "开源"
+  },
+  "home.section.feedback": {
+    "message": "反馈"
+  },
+  "home.section.community": {
+    "message": "社区"
   },
   "theme.ErrorPageContent.title": {
     "message": "页面已崩溃。",
