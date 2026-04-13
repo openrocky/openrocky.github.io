@@ -21,7 +21,7 @@ graph TB
         OpenAI["OpenAI<br/>Realtime API"]
         Azure["Azure OpenAI"]
         Gemini["Google Gemini"]
-        Doubao["豆包"]
+        GLM["GLM"]
     end
 
     subgraph ROS["ROS (Rocky OS) 运行时"]
@@ -125,7 +125,7 @@ graph TD
         P1["OpenAI"]
         P2["Azure"]
         P3["Gemini"]
-        P4["豆包"]
+        P4["GLM"]
     end
 
     subgraph Accounts["账户层"]

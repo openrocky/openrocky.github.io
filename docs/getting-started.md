@@ -67,8 +67,7 @@ Used for real-time voice conversations — the primary interaction mode.
 | Provider | Example Models | Notes |
 |----------|---------------|-------|
 | OpenAI Realtime | GPT Realtime Mini / GPT Realtime | Full-featured |
-| Doubao Realtime | Doubao E2E Voice | Optimized for Chinese |
-| Gemini Live | Gemini 2.5 Flash Native Audio | Native audio |
+| GLM Realtime | GLM realtime voice models | Chinese optimized |
 
 :::tip
 Only **one Chat provider** and **one Voice provider** can be active at a time, but you can configure multiple instances of each and switch between them freely.

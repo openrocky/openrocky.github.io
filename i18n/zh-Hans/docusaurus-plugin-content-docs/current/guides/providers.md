@@ -106,21 +106,13 @@ graph TB
 - **API Key**: 与 OpenAI 聊天 API Key 相同
 - **特点**: 低延迟、自然语音、多轮对话
 
-### 豆包 Realtime
+### GLM Realtime
 
-针对中文语音交互优化。
+智谱 AI 的实时语音模型，针对中文优化。
 
-- **模型**: Doubao E2E Voice
-- **配置**: 需要火山引擎 Resource ID
-- **特点**: 优秀的中文支持
-
-### Gemini Live
-
-Google 的原生音频模型。
-
-- **模型**: Gemini 2.5 Flash Native Audio
-- **API Key**: 来自 Google AI Studio
-- **特点**: 原生音频处理
+- **模型**: GLM 实时语音模型
+- **API Key**: 来自智谱 AI 平台
+- **特点**: 分类工具支持、客户端 VAD、中文优化
 
 ## 配置方法
 

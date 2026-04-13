@@ -30,8 +30,7 @@ This creates a natural, low-latency conversation experience.
 Voice interaction currently supports providers with realtime streaming APIs:
 
 - **OpenAI Realtime** — Full-featured, low-latency voice via Realtime API
-- **Doubao Realtime** — Optimized for Chinese language via realtime voice protocol
-- **Gemini Live** — Google's native audio model with Gemini 2.5 Flash
+- **GLM Realtime** — Optimized for Chinese language via Zhipu AI realtime voice protocol
 
 Other providers support text-based interaction only.
 

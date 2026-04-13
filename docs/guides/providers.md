@@ -106,21 +106,13 @@ The most full-featured voice provider.
 - **API Key**: Same as OpenAI Chat API key
 - **Features**: Low-latency, natural voice, multi-turn conversation
 
-### Doubao Realtime
+### GLM Realtime
 
-Optimized for Chinese language voice interactions.
+Optimized for Chinese language voice interactions via Zhipu AI.
 
-- **Models**: Doubao E2E Voice
-- **Setup**: Requires Volcengine resource ID
-- **Features**: Excellent Chinese language support
-
-### Gemini Live
-
-Google's native audio model.
-
-- **Models**: Gemini 2.5 Flash Native Audio
-- **API Key**: From Google AI Studio
-- **Features**: Native audio processing
+- **Models**: GLM realtime voice models
+- **API Key**: From Zhipu AI platform
+- **Features**: Tool support via category tools, client VAD, Chinese language optimized
 
 ## Configuration
 
