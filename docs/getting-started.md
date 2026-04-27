@@ -39,13 +39,21 @@ The `ios_system` framework does not support iOS Simulator. For full functionalit
 
 ## Configure Providers
 
-Rocky uses **two separate provider systems** — one for Chat (text) and one for Voice (realtime audio). You can configure them independently with different models and API keys.
+Rocky has a **two-tier provider model**: a single-track Realtime Voice (the live voice loop) and a multi-provider Chat backend (text chat *and* the back-end agent the voice model delegates complex work to). Both tiers live under one settings group.
 
-After launching the app, go to **Settings > Providers** where you'll see two tabs:
+Go to **Settings > Model**:
 
-### Chat Provider
+### Realtime Voice (required for voice)
 
-Used for text-based conversations, task planning, and tool execution.
+Used for the live voice conversation on the home screen. There is exactly one realtime backend and one active configuration — it's a single instance, not a list.
+
+| Provider | Models | Notes |
+|----------|---------|-------|
+| OpenAI Realtime | `gpt-realtime`, `gpt-realtime-mini` | The single voice entry-point |
+
+### Chat (required for text chat and `delegate-task`)
+
+Powers the chat detail screen *and* the back-end agent that the voice model calls via `delegate-task` for multi-step or research-heavy work.
 
 | Provider | Example Models |
 |----------|---------------|
@@ -60,28 +68,17 @@ Used for text-based conversations, task planning, and tool execution.
 | Doubao (Volcengine) | Doubao Seed |
 | AIProxy | Proxy-based access |
 
-### Voice Provider
-
-Used for real-time voice conversations — the primary interaction mode.
-
-| Provider | Example Models | Notes |
-|----------|---------------|-------|
-| OpenAI Realtime | GPT Realtime Mini / GPT Realtime | Full-featured |
-| GLM Realtime | GLM realtime voice models | Chinese optimized |
-
 :::tip
-Only **one Chat provider** and **one Voice provider** can be active at a time, but you can configure multiple instances of each and switch between them freely.
+You can configure multiple Chat instances and switch the active one freely. Realtime Voice is single-instance — there's just one config to fill in.
 :::
 
 ### Setup Steps
 
-1. Open Rocky app
-2. Go to **Settings > Providers**
-3. Switch between the **Chat** and **Voice** tabs
-4. Tap **Add Provider**, select the provider type
-5. Enter your API key and configure the endpoint if needed
-6. Tap to activate the provider you want to use
+1. Open Rocky and go to **Settings > Model**
+2. Tap **Realtime Voice**, enter your OpenAI API key and pick a `gpt-realtime` model
+3. Tap **Chat**, add at least one Chat provider, enter the API key, activate it
+4. Return to the home screen — the top-bar provider chip should show the active realtime model with a green status dot
 
 ## Start Talking
 
-Tap the voice button on the home screen and start talking to Rocky. Voice is the primary input — just speak naturally about what you want to accomplish.
+Tap the orb on the home screen and start talking. Voice is the primary input — speak naturally about what you want to accomplish. The status pill (`Listening`, `Thinking`, `Responding`) tracks where in the turn you are; recent transcript bubbles float above the orb.

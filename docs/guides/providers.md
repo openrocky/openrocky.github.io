@@ -4,45 +4,44 @@ sidebar_position: 2
 
 # Provider Configuration
 
-Rocky has **two independent provider systems**: one for Chat (text) and one for Voice (realtime audio). Each can be configured separately with different providers, accounts, and models.
+Rocky has a **two-tier provider model**: a single-track Realtime Voice (the live voice loop on the home screen) and a multi-provider Chat backend (text chat *and* the back-end agent the voice model delegates complex work to). Both tiers live under one settings group.
 
-## Two Provider Systems
+## Two Tiers
 
 ```mermaid
 graph TB
-    subgraph Chat["Chat Provider"]
-        CP["Text conversations<br/>Task planning<br/>Tool execution"]
+    subgraph Voice["Realtime Voice (single track)"]
+        VP["OpenAI Realtime<br/>gpt-realtime · single instance"]
     end
 
-    subgraph Voice["Voice Provider"]
-        VP["Real-time voice<br/>Primary interaction<br/>Audio streaming"]
+    subgraph Chat["Chat Backend (10 providers)"]
+        CP["Text chat<br/>delegate-task back-end<br/>tool execution"]
     end
 
-    Settings["Settings > Providers"]
-    Settings --> |"Chat tab"| Chat
-    Settings --> |"Voice tab"| Voice
+    Settings["Settings → Model"]
+    Settings --> Voice
+    Settings --> Chat
 ```
 
-- **Chat Provider** — Handles text-based conversations, task planning, and tool execution
-- **Voice Provider** — Handles real-time voice conversations, the primary interaction mode
+- **Realtime Voice** — drives the home-screen voice loop. One backend, one active configuration.
+- **Chat backend** — drives the chat detail screen *and* the sub-agent that the voice model calls via `delegate-task`. Multiple instances, one active at a time.
 
-Only **one Chat provider** and **one Voice provider** can be active at a time, but you can configure multiple instances and switch between them.
+## Realtime Voice
 
-## Provider / Account / Model
+Single-track. There is exactly one realtime backend and one active configuration.
 
-Each provider system follows a three-layer architecture:
+### OpenAI Realtime
 
-```
-Provider (OpenAI, Anthropic, Gemini, ...)
-  └── Account (your API key)
-       └── Model (GPT-4o, Claude Sonnet 4, ...)
-```
+- **Models:** `gpt-realtime`, `gpt-realtime-mini`
+- **API Key:** same key you'd use for OpenAI Chat (`https://platform.openai.com/api-keys`)
+- **Features:** low-latency voice, restricted tool surface (heavier work goes through `delegate-task`)
+- **Config:** **Settings → Model → Realtime Voice**
 
-You can configure multiple accounts per provider and switch between models freely.
+Earlier builds shipped a GLM Realtime backend; it has been removed. The `OpenRockyRealtimeVoiceClient` protocol stays so an additional backend can be added later.
 
-## Chat Providers
+## Chat Backend
 
-Chat providers handle all text-based interactions.
+Three-layer abstraction (Provider → Account → Model). Multi-instance — configure as many accounts as you like and switch the active one freely.
 
 ### OpenAI
 
@@ -94,46 +93,23 @@ Chat providers handle all text-based interactions.
 - **Models**: Proxy-based access to various models
 - **Setup**: Requires service URL configuration
 
-## Voice Providers
-
-Voice providers handle real-time audio streaming for voice conversations.
-
-### OpenAI Realtime
-
-The most full-featured voice provider.
-
-- **Models**: GPT Realtime Mini, GPT Realtime
-- **API Key**: Same as OpenAI Chat API key
-- **Features**: Low-latency, natural voice, multi-turn conversation
-
-### GLM Realtime
-
-Optimized for Chinese language voice interactions via Zhipu AI.
-
-- **Models**: GLM realtime voice models
-- **API Key**: From Zhipu AI platform
-- **Features**: Tool support via category tools, client VAD, Chinese language optimized
-
 ## Configuration
 
 ```mermaid
 graph LR
-    A["Open Settings"] --> B["Providers"]
-    B --> C{"Select tab"}
-    C -->|Chat| D["Add Chat Provider"]
-    C -->|Voice| E["Add Voice Provider"]
-    D --> F["Enter API Key"]
-    E --> F
-    F --> G["Activate"]
+    A["Settings → Model"] --> RT["Realtime Voice"]
+    A --> CH["Chat"]
+    RT --> KEY1["OpenAI key + model"]
+    CH --> ADD["Add provider instance"]
+    ADD --> KEY2["API key + model"]
+    KEY2 --> ACT["Activate"]
 ```
 
-1. Open Rocky app
-2. Go to **Settings > Providers**
-3. Switch between the **Chat** and **Voice** tabs
-4. Tap **Add Provider** and select your provider type
-5. Enter your API key and configure the endpoint if needed
-6. Tap to activate the provider you want to use
+1. Open Rocky and go to **Settings → Model**
+2. Set up **Realtime Voice** with your OpenAI key and a `gpt-realtime` model
+3. Add at least one **Chat** provider instance and activate it
+4. Return to the home screen — the top-bar chip shows the active realtime model with a green status dot when ready
 
 :::tip
-You can mix and match — for example, use Anthropic Claude for Chat and OpenAI Realtime for Voice. Each system is completely independent.
+You can mix tiers. For example, OpenAI Realtime as the voice track + Anthropic Claude as the Chat back-end is a common pairing for tool-heavy delegation.
 :::

@@ -17,11 +17,15 @@ graph TB
         Text["⌨️ Text Input<br/>(Supplement)"]
     end
 
-    subgraph Provider["AI Provider Layer"]
-        OpenAI["OpenAI<br/>Realtime API"]
-        Azure["Azure OpenAI"]
+    subgraph Voice["Realtime Voice"]
+        OpenAIRT["OpenAI Realtime<br/>(single track)"]
+    end
+
+    subgraph Chat["Chat Backend (10 providers)"]
+        OpenAI["OpenAI"]
+        Anthropic["Anthropic"]
         Gemini["Google Gemini"]
-        GLM["GLM"]
+        Other["…"]
     end
 
     subgraph ROS["ROS (Rocky OS) Runtime"]
@@ -43,34 +47,42 @@ graph TB
         Visual["📱 Visual UI"]
     end
 
-    Voice --> Provider
-    Text --> Provider
-    Provider --> ROS
+    Voice --> Voice
+    Text --> Chat
+    Voice --> ROS
+    ROS -->|delegate-task| Chat
+    Chat --> ROS
     ROS --> Execution
     Execution --> Output
 ```
 
 ### Data Flow
 
+The voice model handles low-latency turns directly. For multi-step or research-heavy work it calls the `delegate-task` tool, which spins up a back-end **Chat sub-agent** that runs to completion and returns a single summary the voice model speaks back.
+
 ```mermaid
 sequenceDiagram
     participant User
-    participant Voice as Voice Engine
-    participant AI as AI Provider
+    participant RT as OpenAI Realtime
     participant ROS as ROS Runtime
-    participant Exec as Execution Layer
-    participant UI as UI Layer
+    participant Sub as Chat Sub-agent
+    participant Tools as Native Tools
 
-    User->>Voice: Speak
-    Voice->>AI: Stream audio
-    AI->>ROS: Process intent
-    ROS->>ROS: Plan task
-    ROS->>Exec: Execute actions
-    Exec-->>ROS: Results
-    ROS-->>AI: Generate response
-    AI-->>Voice: Stream audio
-    Voice-->>User: Speak response
-    ROS-->>UI: Update visual state
+    User->>RT: Speak
+    RT->>ROS: Tool call (direct)
+    ROS->>Tools: e.g. timer / weather
+    Tools-->>ROS: Result
+    ROS-->>RT: Result
+    RT-->>User: Speak short answer
+
+    Note over RT,Sub: Heavy task path
+    RT->>ROS: delegate-task("research X")
+    ROS->>Sub: Run with Chat provider
+    Sub->>Tools: Multi-step tools
+    Tools-->>Sub: Results
+    Sub-->>ROS: Summary
+    ROS-->>RT: Summary
+    RT-->>User: Speak summary
 ```
 
 ## ROS — Rocky OS
@@ -117,51 +129,46 @@ Actions requested by the AI model — web search, code generation, analysis, etc
 
 A controlled local execution environment using [ios_system](https://github.com/holzschu/ios_system). Supports shell commands, Python scripts, and WASM modules in a sandboxed environment.
 
-## Provider Architecture
+## Provider Architecture — Two Tiers
+
+Rocky uses a two-tier provider model. Both tiers live under **Settings → Model** in the app.
 
 ```mermaid
 graph TD
-    subgraph Providers["Provider Layer"]
-        P1["OpenAI"]
-        P2["Azure"]
-        P3["Gemini"]
-        P4["GLM"]
+    subgraph Voice["Realtime Voice (single track)"]
+        RT["OpenAI Realtime<br/>gpt-realtime · single instance"]
     end
 
-    subgraph Accounts["Account Layer"]
-        A1["API Key 1"]
-        A2["API Key 2"]
-        A3["API Key 3"]
+    subgraph Chat["Chat Backend (10 providers)"]
+        C1["OpenAI"]
+        C2["Azure"]
+        C3["Anthropic"]
+        C4["Gemini"]
+        C5["…"]
     end
 
-    subgraph Models["Model Layer"]
-        M1["GPT-4o"]
-        M2["GPT-4"]
-        M3["Gemini Pro"]
-    end
-
-    P1 --> A1
-    P1 --> A2
-    P3 --> A3
-    A1 --> M1
-    A1 --> M2
-    A3 --> M3
+    Home["Voice Home"] --> RT
+    RT -->|delegate-task| Chat
+    ChatScreen["Chat detail screen"] --> Chat
 ```
 
-Rocky uses a three-layer abstraction for model providers:
+**Realtime Voice** drives the home-screen voice loop. There's exactly one realtime backend (OpenAI Realtime) and one active configuration — it's not a list.
 
-1. **Provider** — The service (OpenAI, Azure, Gemini, etc.)
-2. **Account** — Your credential / API key for a provider
-3. **Model** — The specific model to use (GPT-4, Gemini Pro, etc.)
+**Chat backend** uses the classic three-layer abstraction:
 
-This allows connecting multiple accounts and switching between providers seamlessly.
+1. **Provider** — OpenAI, Azure, Anthropic, Gemini, Groq, xAI, OpenRouter, DeepSeek, Doubao, AIProxy
+2. **Account** — your credential / API key (multiple accounts allowed per provider)
+3. **Model** — the specific model to use
+
+The Chat backend serves two purposes: the chat detail screen (text-mode interaction) and the back-end agent that the voice model delegates complex tasks to.
 
 ## UI Architecture
 
-- **SwiftUI** — The primary UI framework for iOS and iPadOS
-- **LanguageModelChatUI** — Chat detail view component by [Lakr233](https://github.com/Lakr233/LanguageModelChatUI)
-- **Voice Home** — The first screen; voice-first, not chat-list-first
-- **Chat Detail** — Task execution detail page, not the primary interface
+- **SwiftUI** — primary UI framework for iOS and iPadOS
+- **LanguageModelChatUI** — chat detail view component by [Lakr233](https://github.com/Lakr233/LanguageModelChatUI)
+- **Voice Home** — the first screen, voice-first not chat-list-first. Single-orb canvas with TimelineView-driven pulse rings, a live waveform during listening, an iMessage-style transcript feed, and a top-bar provider chip showing the live realtime model + connection state.
+- **Chat Detail** — task execution detail page, reachable from the home top-bar. Not the primary interface.
+- **Settings** — Realtime Voice and Chat live under a single **Model** group (one place to look, two halves to set up).
 
 ## Key Dependencies
 
